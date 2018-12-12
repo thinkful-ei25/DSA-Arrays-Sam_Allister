@@ -19,7 +19,7 @@ class Array {
     this.length++;
   }
 
-  //O(1)
+  //O(n) because memory.set O(1) and resize calls copy O(n) in worst case
 
   resize(size){
     const ptr1 = this.ptr;
@@ -32,12 +32,16 @@ class Array {
     this.capacity = size;
   }
 
+  //O(n)
+
   get(index){
     if(index<0 || index>=this.length){
       throw new Error('Index error');
     }
     return memory.get(this.ptr+index);
   }
+
+  //O(1)
 
   pop(){
     if(this.length===0){
@@ -47,6 +51,8 @@ class Array {
     this.length--;
     return value;
   }
+
+  //O(1)
 
   insert(index, value){
     if(index<0 || index>=this.length){
@@ -60,12 +66,33 @@ class Array {
     this.length++;
   }
 
+  //O(n)
+
   remove(index){
     if(index<0 || index>=this.length){
       throw new Error('Index error');
     }
     memory.copy(this.ptr+index, this.ptr+index+1, this.length - index - 1);
     this.length--;
+  }
+
+  //O(n)
+
+  print(){
+    let answer = '[';
+    for(let i=0; i<this.length;i++){
+      let value = memory.get(this.ptr+i);
+      if(value && i===this.length-1){
+        answer += value + ']';
+      } else{
+        answer += value +',';
+      }
+    }
+    return answer;
+  }
+
+  memory(){
+    console.log(memory);
   }
 
 }
