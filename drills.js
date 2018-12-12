@@ -3,19 +3,19 @@
 
 
 function urlifyString(string) {
-	string = string.trim()
-	let output = ''
-	for (let i = 0; i < string.length; i++) {
-		if (string[i] === ' ') {
-			output += '%20';
-		} else {
-			output += string[i];
-		}
-	}
-	return output;
+  string = string.trim();
+  let output = '';
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] === ' ') {
+      output += '%20';
+    } else {
+      output += string[i];
+    }
+  }
+  return output;
 }
 
-console.log(urlifyString('  tauhida parveen'))
+console.log(urlifyString('  tauhida parveen'));
 
 // input: tauhida parveen
 
@@ -28,16 +28,16 @@ console.log(urlifyString('  tauhida parveen'))
 // complexity: O (n)
 
 function myFilter(arr, filter = 5) {
-	let output = [];
-	for (let i = 0; i < arr.length; i++) {
-		if (arr[i] >= filter) {
-			output.push(arr[i]);
-		}
-	}
-	return output;
+  let output = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] >= filter) {
+      output.push(arr[i]);
+    }
+  }
+  return output;
 }
 
-console.log(myFilter([1, 2, 3, 4, 5, 6, 7, 8]))
+console.log(myFilter([1, 2, 3, 4, 5, 6, 7, 8]));
 
 // input : [1, 2, 3, 4, 5, 6, 7, 8]
 
@@ -99,22 +99,6 @@ function mergeArrays(arr1,arr2){
 //answer2 = [1,2,3,4,5,6]
 //O(n)
 
-<<<<<<< HEAD
-=======
-
-// function removeCharacters(string, chars) {
-//   let output = '';
-//   for (let i = 0; i < string.length; i++) {
-//     for (let j = 0; j < chars.length; j++) {
-//       if (string[i] !== chars[j]) {
-//         output += string[i];
-//       }
-//     }
-//   }
-//   return output;
-// }
-
->>>>>>> 33bcc4299581e724041286ad590a1055cef3d9ba
 function removeCharacters(string, chars) {
   let output = '';
   for (let i = 0; i < string.length; i++) {
