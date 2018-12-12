@@ -65,7 +65,7 @@ function maxSum(arr){
 }
 
 const answer = maxSum([4,6,-3,5,-2,1]);
-console.log(answer);
+//console.log(answer);
 //answer = 12
 //O(n^2)
 
@@ -94,7 +94,135 @@ function mergeArrays(arr1,arr2){
   return output;
 }
 
-const answer2 = mergeArrays([1,3,6],[2,4,5]);
-console.log(answer2);
+//const answer2 = mergeArrays([1,3,6],[2,4,5]);
+//console.log(answer2);
 //answer2 = [1,2,3,4,5,6]
 //O(n)
+
+function removeCharacters(string, chars) {
+  let output = '';
+  for (let i = 0; i < string.length; i++) {
+    let contained = true;
+    for (let j = 0; j < chars.length; j++) {
+      if (string[i] === chars[j]) {
+        contained = false;
+      }
+    }
+    if (contained) {
+      output += string[i];
+    }
+  }
+  return output;
+}
+
+
+//console.log(removeCharacters('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'))
+
+// Input:'Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'
+// Output: 'Bttl f th Vwls: Hw vs. Grzny'
+// Complexity: O (n^2)
+
+
+function products(arr){
+  let output=[];
+  for(let i=0;i<arr.length;i++){
+    let product=1;
+    for(let j=0;j<arr.length;j++){
+      if(i!==j){
+        product *= arr[j];
+      }
+    }
+    output.push(product);
+  }
+  return output;
+}
+
+// Input:[1, 3, 9, 4]
+// Output:[108, 36, 12, 27]
+// O(n^2)
+
+function twoDarray(arr){
+  let output=[];
+  let rowCheck = [];
+  let columnCheck =[];
+  for(let i=0;i<arr.length;i++){
+    for(let j=0; j<arr[0].length;j++){
+      if(arr[i][j]===0){
+        rowCheck[i]=true;
+        columnCheck[j]=true;
+      } 
+    }
+  }
+  for(let i=0;i<arr.length;i++){
+    if(!output[i]){
+      output[i]=[];
+    }
+    for(let j=0; j<arr[0].length;j++){
+      if(rowCheck[i]||columnCheck[j]){
+        output[i][j]= 0;
+      } else {
+        output[i][j]=1;
+      }
+    }
+  }
+  return output;      
+}
+
+/*row check
+  [[0],
+   [0],
+   [1],
+   [0],
+   [1]]
+*/
+
+/*
+  column check
+[0],[0],[1],[1],[0]
+*/
+
+//input
+const arr1 = [[1,0,1,1,0],
+  [0,1,1,1,0],
+  [1,1,1,1,1],
+  [1,0,1,1,1],
+  [1,1,1,1,1]];
+//output
+const arr2 = [[0,0,0,0,0],
+  [0,0,0,0,0],
+  [0,0,1,1,0],
+  [0,0,0,0,0],
+  [0,0,1,1,0]];
+
+//const answer4 = twoDarray(arr1);
+//console.log(answer4);
+
+//O(n^2)
+
+function stringRotation(str1,str2){
+  if(str1.length !== str2.length){
+    return false;
+  }
+  let doublestr1 = str1 + str1;
+
+  if(doublestr1.indexOf(str2)===-1){
+    return false;
+  } else {
+    return true;
+  }
+  
+}
+
+// Input: amazon, azonma
+
+// Output: False
+
+// Input: amazon, azonam
+
+// Output: true
+
+const answer5 = stringRotation('amazon','azonam');
+console.log(answer5);
+
+//O(n)
+//indexOf's complexity is O(n)
