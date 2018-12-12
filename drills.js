@@ -3,19 +3,19 @@
 
 
 function urlifyString(string) {
-  string = string.trim();
-  let output = '';
-  for (let i = 0; i < string.length; i++) {
-    if (string[i] === ' ') {
-      output += '%20';
-    } else {
-      output += string[i];
-    }
-  }
-  return output;
+	string = string.trim()
+	let output = ''
+	for (let i = 0; i < string.length; i++) {
+		if (string[i] === ' ') {
+			output += '%20';
+		} else {
+			output += string[i];
+		}
+	}
+	return output;
 }
 
-//console.log(urlifyString('  tauhida parveen'));
+console.log(urlifyString('  tauhida parveen'))
 
 // input: tauhida parveen
 
@@ -28,16 +28,16 @@ function urlifyString(string) {
 // complexity: O (n)
 
 function myFilter(arr, filter = 5) {
-  let output = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] >= filter) {
-      output.push(arr[i]);
-    }
-  }
-  return output;
+	let output = [];
+	for (let i = 0; i < arr.length; i++) {
+		if (arr[i] >= filter) {
+			output.push(arr[i]);
+		}
+	}
+	return output;
 }
 
-//console.log(myFilter([1, 2, 3, 4, 5, 6, 7, 8]));
+console.log(myFilter([1, 2, 3, 4, 5, 6, 7, 8]))
 
 // input : [1, 2, 3, 4, 5, 6, 7, 8]
 
@@ -98,3 +98,39 @@ const answer2 = mergeArrays([1,3,6],[2,4,5]);
 console.log(answer2);
 //answer2 = [1,2,3,4,5,6]
 //O(n)
+
+
+// function removeCharacters(string, chars) {
+//   let output = '';
+//   for (let i = 0; i < string.length; i++) {
+//     for (let j = 0; j < chars.length; j++) {
+//       if (string[i] !== chars[j]) {
+//         output += string[i];
+//       }
+//     }
+//   }
+//   return output;
+// }
+
+function removeCharacters(string, chars) {
+  let output = '';
+  for (let i = 0; i < string.length; i++) {
+    let contained = true;
+    for (let j = 0; j < chars.length; j++) {
+      if (string[i] === chars[j]) {
+        contained = false;
+      }
+    }
+    if (contained) {
+      output += string[i];
+    }
+  }
+return output;
+}
+
+
+console.log(removeCharacters('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'))
+
+// Input:'Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'
+// Output: 'Bttl f th Vwls: Hw vs. Grzny'
+// Complexity: O (n^2)
