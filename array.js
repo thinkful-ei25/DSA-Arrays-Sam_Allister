@@ -13,7 +13,7 @@ class Array {
 
   push(value){
     if(this.length >= this.capacity){
-      this.resize((this.length+1)*Array.SIZE_RATIO);
+      this._resize((this.length+1)*Array.SIZE_RATIO);
     }
     memory.set(this.ptr+this.length, value);
     this.length++;
@@ -21,7 +21,7 @@ class Array {
 
   //O(n) because memory.set O(1) and resize calls copy O(n) in worst case
 
-  resize(size){
+  _resize(size){
     const ptr1 = this.ptr;
     this.ptr = memory.allocate(size);
     if(this.ptr === null){
@@ -59,7 +59,7 @@ class Array {
       throw new Error('Index error');
     }
     if(this.length >= this.capacity){
-      this.resize((this.length+1)*Array.SIZE_RATIO);
+      this._resize((this.length+1)*Array.SIZE_RATIO);
     }
     memory.copy(this.ptr+index+1, this.ptr+index, this.length-index);
     memory.set(this.ptr+index, value);

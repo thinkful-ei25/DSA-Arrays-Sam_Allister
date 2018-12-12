@@ -5,6 +5,11 @@ const Array = require('./array');
 let arr = new Array();
 
 arr.push(3);
+
+// length = 1
+// capacity = 3
+// ptr = 0
+
 arr.push(5);
 arr.push(15);
 arr.push(19);
@@ -13,6 +18,7 @@ arr.push(10);
 
 // length = 6
 // capacity = 12
+// ptr = 3
 // address = memory[3] to memory[8]
 
 
@@ -20,9 +26,10 @@ arr.pop();
 arr.pop();
 arr.pop();
 
-//length = 3
-//capcity = 12
-//memory = memory[3] to memory[5]
+// length = 3
+// capcity = 12
+// ptr = 3
+// memory = memory[3] to memory[5]
 
 // const arr1 = arr.get(0);
 // console.log(arr1);
